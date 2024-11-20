@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .  # Indica la ruta del proyecto frontend (en este caso la raíz del proyecto)
+      dockerfile: docker/Dockerfile  # Especifica la ruta del Dockerfile dentro de la carpeta docker
+      #name: nexus1-frontend-build
+    image: nexus1-frontend:latest
+    container_name: nexus1-frontend
+    ports:
+      - "5173:5173"  # Exponer el puerto Vite
+    volumes:
+      - .:/usr/src/app  # Monta el directorio raíz de tu proyecto en /usr/src/app dentro del contenedor
+      - /usr/src/app/node_modules
+
+    networks:
+      - frontend_backend_network  # La red común para frontend y backend
+
+networks:
+  frontend_backend_network:
+    driver: bridge
