@@ -20,6 +20,40 @@ import HelloWorld from './components/HelloWorld.vue'
   <RouterView />
 </template>
 
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      message: 'Cargando...', // Mensaje inicial
+    };
+  },
+  methods: {
+    async checkConnection() {
+      try {
+        // Realizamos la solicitud GET al endpoint de la API
+        const response = await axios.get('http://127.0.0.1:8000/auth/login');
+         
+        // Si la respuesta es exitosa, mostramos el mensaje de la respuesta
+        this.message = `Conexión exitosa: ${response.data.message}`;
+      } catch (error) {
+        // Si ocurre un error, mostramos el mensaje de error
+        this.message = `Error al conectar: ${error.message}`;
+      }
+    },
+  },
+  mounted() {
+    // Llamamos a la función cuando el componente se monta
+    this.checkConnection();
+  },
+};
+</script>
+
+
+
+
 <style scoped>
 header {
   line-height: 1.5;

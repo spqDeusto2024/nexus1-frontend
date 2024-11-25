@@ -13,10 +13,8 @@ services:
     volumes:
       - .:/usr/src/app  # Monta el directorio raíz de tu proyecto en /usr/src/app dentro del contenedor
       - /usr/src/app/node_modules
-
     networks:
-      - frontend_backend_network  # La red común para frontend y backend
-
+      - test  # La red común para frontend y backend
 networks:
-  frontend_backend_network:
-    driver: bridge
+  test:
+    name: nexus1-backend-project
