@@ -11,8 +11,8 @@ services:
     ports:
       - "5173:5173"  # Exponer el puerto Vite
     volumes:
-      - .:/usr/src/app  # Monta el directorio raíz de tu proyecto en /usr/src/app dentro del contenedor
-      - /usr/src/app/node_modules
+      - .:/app  # Monta el directorio raíz de tu proyecto en /usr/src/app dentro del contenedor
+      - /app/node_modules
     networks:
       - test  # La red común para frontend y backend
 networks:

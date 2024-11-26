@@ -1,119 +1,36 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'; // Cargamos el RouterView para gestionar vistas dinámicas
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <!-- <div id="app"> -->
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <!-- El RouterView se encargará de mostrar la vista correspondiente según la ruta -->
+    <RouterView />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
 </template>
-
-
-<script>
-import axios from 'axios';
-
-export default {
-  data() {
-    return {
-      message: 'Cargando...', // Mensaje inicial
-    };
-  },
-  methods: {
-    async checkConnection() {
-      try {
-        // Realizamos la solicitud GET al endpoint de la API
-        const response = await axios.get('http://127.0.0.1:8000/auth/login');
-         
-        // Si la respuesta es exitosa, mostramos el mensaje de la respuesta
-        this.message = `Conexión exitosa: ${response.data.message}`;
-      } catch (error) {
-        // Si ocurre un error, mostramos el mensaje de error
-        this.message = `Error al conectar: ${error.message}`;
-      }
-    },
-  },
-  mounted() {
-    // Llamamos a la función cuando el componente se monta
-    this.checkConnection();
-  },
-};
-</script>
-
-
-
-
+<!-- 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
+/* Estilos globales del contenedor principal */
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
-  margin-top: 2rem;
+  color: #2c3e50;
+  margin-top: 60px;
 }
+</style> -->
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+<style>
+  body {
+    background-color: black; /* Fondo negro */
+    color: white; /* Para asegurar que el texto se vea bien sobre el fondo oscuro */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Puedes elegir tu fuente preferida */
+    align-content: center;
+  }
+  #app {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
 </style>
