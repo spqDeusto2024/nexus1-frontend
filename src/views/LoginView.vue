@@ -36,6 +36,7 @@ export default {
         payload.append('password', this.password);
 
         const response = await apiClient.post('/auth/login', payload);
+        
        
 
         // Verificar el token en la respuesta
@@ -43,7 +44,7 @@ export default {
         if (token) {
           localStorage.setItem('token', token); // Guarda el token en localStorage
           console.log('Token guardado:', token);
-
+          this.$router.push("/main");
          
         } else {
           throw new Error('El token no fue recibido.');
