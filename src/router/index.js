@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue';
 import MainView from '../views/MainView.vue';
+import TenantView from '../views/TenantView.vue';
+import AddTenantView from '../views/AddTenantView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,7 +21,17 @@ const router = createRouter({
     {
       path: '/main',
       name: 'main',
-      component: MainView, // Vista para el login
+      component: MainView, // Vista para el main
+    },
+    {
+      path: '/inquilinos',
+      name: 'inquilinos',
+      component: TenantView, // Vista para el main
+    },
+    {
+      path: '/inquilino/add',
+      name: 'add-inquilinos',
+      component: AddTenantView, // Vista para el main
     }
     // {
     //   path: '/about',

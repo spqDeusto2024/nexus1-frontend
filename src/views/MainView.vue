@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <button class="dashboard-btn" @click="navigateTo('')">INQUILINOS</button>
+    <button class="dashboard-btn" @click="navigateTo('inquilinos')">INQUILINOS</button>
     <button class="dashboard-btn" @click="navigateTo('')">ESTANCIAS</button>
     <button class="dashboard-btn" @click="navigateTo('')">HABITACIONES</button>
     <button class="dashboard-btn" @click="navigateTo('')">ROLES</button>
