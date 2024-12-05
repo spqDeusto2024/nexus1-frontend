@@ -5,6 +5,9 @@ import MainView from '../views/MainView.vue';
 import TenantView from '../views/TenantView.vue';
 import AddTenantView from '../views/AddTenantView.vue';
 import UpdateTenantView from '../views/UpdateTenantView.vue';
+import RoomView from '../views/RoomView.vue';
+import AddRoomView from '../views/AddRoomView.vue';
+import UpdateRoomView from '../views/UpdateRoomView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,7 +42,27 @@ const router = createRouter({
       path: '/inquilino/update/:id',
       name: 'update-inquilinos',
       component: UpdateTenantView, // Vista para el main
+    },
+    {
+      path: '/estancias',
+      name: 'estancias',
+      component: RoomView, // Vista para el main
+    }, 
+    {
+      path: '/estancia/add',
+      name: 'add-room',
+      component: AddRoomView, // Vista para el main
+    }, 
+
+    {
+      path: '/estancia/update/:id',
+      name: 'update-estancia',
+      component: UpdateRoomView, // Vista para el main
     }
+  
+
+    
+
     // {
     //   path: '/about',
     //   name: 'about',
