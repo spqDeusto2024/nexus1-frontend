@@ -2,7 +2,7 @@
   <div class="dashboard">
     <button class="dashboard-btn" @click="navigateTo('inquilinos')">INQUILINOS</button>
     <button class="dashboard-btn" @click="navigateTo('estancias')">ESTANCIAS</button>
-    <button class="dashboard-btn" @click="navigateTo('')">HABITACIONES</button>
+    <button class="dashboard-btn" @click="navigateTo('habitaciones')">HABITACIONES</button>
     <button class="dashboard-btn" @click="navigateTo('')">ROLES</button>
     <button class="dashboard-btn" @click="navigateTo('refugio')">REFUGIO</button>
     <button class="dashboard-btn" @click="navigateTo('')">ALARMAS</button>
