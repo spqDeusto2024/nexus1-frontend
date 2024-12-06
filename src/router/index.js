@@ -8,6 +8,8 @@ import UpdateTenantView from '../views/UpdateTenantView.vue';
 import RoomView from '../views/RoomView.vue';
 import AddRoomView from '../views/AddRoomView.vue';
 import UpdateRoomView from '../views/UpdateRoomView.vue';
+import ShelterView from '../views/ShelterView.vue';
+import UpdateShelterView from '../views/UpdateShelterView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -58,7 +60,17 @@ const router = createRouter({
       path: '/estancia/update/:id',
       name: 'update-estancia',
       component: UpdateRoomView, // Vista para el main
-    }
+    },
+    {
+      path: '/refugio',
+      name: 'refugio',
+      component: ShelterView, // Vista para el main
+    },
+    {
+      path: '/shelter/update/:id',
+      name: 'update-shelter',
+      component: UpdateShelterView, // Vista para el main
+    },
   
 
     
