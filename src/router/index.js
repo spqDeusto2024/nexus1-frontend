@@ -10,6 +10,9 @@ import AddRoomView from '../views/AddRoomView.vue';
 import UpdateRoomView from '../views/UpdateRoomView.vue';
 import ShelterView from '../views/ShelterView.vue';
 import UpdateShelterView from '../views/UpdateShelterView.vue';
+import DormitoryView from '../views/DormitoryView.vue';
+import AddDormitoryView from '../views/AddDormitoryView.vue';
+import UpdateDormitoryView from '../views/UpdateDormitoryView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,6 +74,22 @@ const router = createRouter({
       name: 'update-shelter',
       component: UpdateShelterView, // Vista para el main
     },
+    {
+      path: '/habitaciones',
+      name: 'habitaciones',
+      component: DormitoryView, // Vista para el main
+    },
+    {
+      path: '/dormitory/add',
+      name: 'add-dormitory',
+      component: AddDormitoryView, // Vista para el main
+    }, 
+    {
+      path: '/dormitory/update/:id',
+      name: 'update-dormitory',
+      component: UpdateDormitoryView, // Vista para el main
+    }, 
+  
   
 
     
