@@ -48,49 +48,54 @@ export default {
   data() {
     return {
       dormitory: {
-        id: this.$route.params.id,
+        id: this.$route.params.id, // Obtener el ID del dormitorio desde la URL
         id_shelter: 0, // ID del refugio por defecto
         name: "", // Nombre vacío inicialmente
         description: "", // Descripción vacía inicialmente
-        capacity: 0, // Capacidad por defecto
-        actual_tenant_number: 0, // Número actual de inquilinos por defecto
+        capacity: 0, // Capacidad inicial
+        actual_tenant_number: 0, // Número actual de inquilinos
         availability: true, // Disponibilidad por defecto
-        
       },
     };
   },
   methods: {
     async updateDormitory() {
       try {
-        // Validación: Verificar si se proporcionan valores esenciales
+        // Crear un objeto con los campos que han sido modificados
+        const updatedDormitory = {};
+
+        // Validar y solo agregar campos al objeto de actualización si tienen un valor
+        if (this.dormitory.id_shelter !== undefined) updatedDormitory.id_shelter = this.dormitory.id_shelter;
+        if (this.dormitory.name) updatedDormitory.name = this.dormitory.name;
+        if (this.dormitory.description) updatedDormitory.description = this.dormitory.description;
+        if (this.dormitory.capacity !== undefined) updatedDormitory.capacity = this.dormitory.capacity;
+        if (this.dormitory.actual_tenant_number !== undefined) updatedDormitory.actual_tenant_number = this.dormitory.actual_tenant_number;
+        if (this.dormitory.availability !== undefined) updatedDormitory.availability = this.dormitory.availability;
+
+        // Verificar si se proporcionan valores esenciales para la actualización
         if (
-          this.dormitory.id_shelter === undefined ||
-          this.dormitory.name === "" ||
-          this.dormitory.description === "" ||
-          this.dormitory.capacity === undefined ||
-          this.dormitory.actual_tenant_number === undefined ||
-          this.dormitory.availability === undefined
+          updatedDormitory.id_shelter === undefined ||
+          updatedDormitory.name === undefined ||
+          updatedDormitory.description === undefined ||
+          updatedDormitory.capacity === undefined ||
+          updatedDormitory.actual_tenant_number === undefined ||
+          updatedDormitory.availability === undefined
         ) {
           alert("Por favor, completa todos los campos requeridos.");
           return;
         }
 
-        // Enviar los datos actualizados a la API
+        // Enviar solo los campos modificados a la API
         const response = await apiClient.post("/dormitory/update", {
-          id_shelter: this.dormitory.id_shelter,
-          name: this.dormitory.name,
-          description: this.dormitory.description,
-          capacity: this.dormitory.capacity,
-          actual_tenant_number: this.dormitory.actual_tenant_number,
-          availability: this.dormitory.availability,
-          id: this.tenant.id
+          id: this.dormitory.id, // Siempre enviamos el id del dormitorio
+          ...updatedDormitory, // Campos actualizados
         });
 
         console.log("Dormitorio actualizado:", response.data);
-        alert("Dormitorio actualizado correctamente");
-        this.$router.push("/habitaciones"); // Redirigir a la lista de dormitorios
+        alert("Dormitorio actualizado correctamente"); // Alerta de éxito
+        this.$router.push("/habitaciones"); // Redirigir a la lista de dormitorios después de la actualización
       } catch (error) {
-        console.error("Error al actualizar el dormitorio:", error.response?.data || error.message);
+        console.error("Error al actualizar el dormitorio:", error);
         alert("Hubo un error al actualizar el dormitorio. Por favor, intenta de nuevo.");
       }
     },
