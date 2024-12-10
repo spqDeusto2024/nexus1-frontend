@@ -13,6 +13,8 @@ import UpdateShelterView from '../views/UpdateShelterView.vue';
 import DormitoryView from '../views/DormitoryView.vue';
 import AddDormitoryView from '../views/AddDormitoryView.vue';
 import UpdateDormitoryView from '../views/UpdateDormitoryView.vue';
+import RoleView from '../views/RoleView.vue';
+import AddRoleView from '../views/AddRoleView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -89,8 +91,16 @@ const router = createRouter({
       name: 'update-dormitory',
       component: UpdateDormitoryView, // Vista para el main
     }, 
-  
-  
+    {
+      path: '/roles',
+      name: 'roles',
+      component: RoleView, // Vista para el main
+    },
+    {
+      path: '/role/add',
+      name: 'add-role',
+      component: AddRoleView, // Vista para el main
+    }, 
 
     
 
