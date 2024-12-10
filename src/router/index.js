@@ -15,6 +15,7 @@ import AddDormitoryView from '../views/AddDormitoryView.vue';
 import UpdateDormitoryView from '../views/UpdateDormitoryView.vue';
 import RoleView from '../views/RoleView.vue';
 import AddRoleView from '../views/AddRoleView.vue';
+import UpdateRoleView from '../views/UpdateRoleView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -101,6 +102,11 @@ const router = createRouter({
       name: 'add-role',
       component: AddRoleView, // Vista para el main
     }, 
+    {
+      path: '/role/update/:id',
+      name: 'update-role',
+      component: UpdateRoleView, // Vista para el main
+    }
 
     
 
