@@ -4,6 +4,7 @@ import axios from 'axios';
 const apiClient = axios.create({
   baseURL: 'http://127.0.0.1:8000', // Cambia esto si tu backend tiene otra URL base
   headers: {
+    
      // Configuración estándar
   },
 });

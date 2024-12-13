@@ -10,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
   methods: {
     navigateTo(objectName) {
@@ -18,6 +19,9 @@ export default {
     },
   },
 };
+
+
+
 </script>
 
 <style scoped>
