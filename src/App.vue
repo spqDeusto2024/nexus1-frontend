@@ -54,7 +54,7 @@ const checkAlarmas = async () => {
       if (parameterRoom.value > parameter.max_value || parameterRoom.value < parameter.min_value) {
         // Crear la alarma si el valor está fuera de rango
         const newAlarm = {
-          id: parameterRoom.id,  // Podrías usar un UUID en lugar de Date.now() si es una preocupación
+          id: parameterRoom.id, 
           nombre: `${parameter.name} en la estancia ${parameterRoom.id_room}`,
           idParameter: parameter.id,
           idParameterRoom: parameterRoom.id,
